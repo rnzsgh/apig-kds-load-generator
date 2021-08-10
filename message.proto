@@ -1,0 +1,13 @@
+syntax = "proto3";
+package main;
+
+option go_package = "protob/model";
+
+message Event {
+  string id = 1;
+  string raw = 3;
+}
+
+message Group {
+  repeated Event events = 1;
+}
