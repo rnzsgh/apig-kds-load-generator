@@ -68,7 +68,7 @@ func generateLoad(channel chan int) {
 	var events []*model.Event
 	var fill int
 
-	messageOverheadBytes := 200 // This is a guess - figure out message overhead
+	messageOverheadBytes := 200 // This is an estimate - message overhead
 
 	for size := range channel {
 
@@ -82,7 +82,7 @@ func generateLoad(channel chan int) {
 			fill = 0
 		}
 
-		fill += size + fill + messageOverheadBytes
+		fill += fill + size + messageOverheadBytes
 
 		events = append(events, &model.Event{
 			Id:  uuid.NewString(),
